@@ -79,6 +79,10 @@ export default async function Home() {
           alt="até 20% de desconto fones"
         />
       </div>
+
+      <div className="py-[30px]">
+        <ProductList title="Mouses" products={mouses[0].products} />
+      </div>
     </>
   )
 }
