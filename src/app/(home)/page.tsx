@@ -14,6 +14,25 @@ export default async function Home() {
     },
     take: 10,
   })
+
+  const keyboards = await prisma.category.findMany({
+    where: {
+      slug: 'keyboards',
+    },
+    include: {
+      products: true,
+    },
+  })
+
+  const mouses = await prisma.category.findMany({
+    where: {
+      slug: 'mouses',
+    },
+    include: {
+      products: true,
+    },
+  })
+
   return (
     <>
       <div className="p-5">
@@ -43,6 +62,10 @@ export default async function Home() {
           className="h-auto w-full"
           alt="até 55% de desconto em mouses"
         />
+      </div>
+
+      <div className="py-[30px]">
+        <ProductList title="Teclados" products={keyboards[0].products} />
       </div>
     </>
   )
