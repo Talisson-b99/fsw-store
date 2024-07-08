@@ -67,6 +67,18 @@ export default async function Home() {
       <div className="py-[30px]">
         <ProductList title="Teclados" products={keyboards[0].products} />
       </div>
+
+      <div className="px-5">
+        <Image
+          src="/banner-home-03.png"
+          width={0}
+          height={0}
+          quality={100}
+          sizes="100vw"
+          className="h-auto w-full"
+          alt="até 20% de desconto fones"
+        />
+      </div>
     </>
   )
 }
