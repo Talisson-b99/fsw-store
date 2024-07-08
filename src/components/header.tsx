@@ -10,6 +10,7 @@ import {
   ShoppingCart,
 } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
 
 import logo from '../../public/logo.svg'
@@ -70,11 +71,11 @@ const Header = () => {
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-muted-foreground flex-1 overflow-hidden truncate text-sm">
+                  <p className="flex-1 overflow-hidden truncate text-sm text-muted-foreground">
                     Seja bem vindo{' '}
                     <span className="text-foreground">{data.user.name}</span>
                   </p>
-                  <p className="text-primary text-xs">Boas compras</p>
+                  <p className="text-xs text-primary">Boas compras</p>
                 </div>
               </div>
               <Separator />
@@ -111,11 +112,12 @@ const Header = () => {
             <Percent size={16} />
             Ofertas
           </Button>
-
-          <Button variant="outline" className="w-full justify-start gap-2">
-            <ListOrdered size={16} />
-            Catálogo
-          </Button>
+          <Link href={'/catalog'}>
+            <Button variant="outline" className="w-full justify-start gap-2">
+              <ListOrdered size={16} />
+              Catálogo
+            </Button>
+          </Link>
         </div>
       </SheetContent>
     </Sheet>
