@@ -8,7 +8,7 @@ interface CatalogItemProps {
 const CatalogItem = ({ category }: CatalogItemProps) => {
   return (
     <div className="flex max-w-[160px] flex-col items-center justify-center overflow-hidden rounded-lg">
-      <div className="to-[rgba(80, 51, 195, 0.20)] flex h-[150px] w-[160px] items-center justify-center bg-gradient-to-bl from-[#5033C3]">
+      <div className="flex h-[150px] w-[160px] items-center justify-center bg-gradient-to-bl from-[#5033C3] to-purple-bg-light">
         <Image
           src={category.imageUrl}
           alt={category.name}

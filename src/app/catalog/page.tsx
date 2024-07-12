@@ -18,7 +18,7 @@ const Catalog = async () => {
         <span className="text-base">CATÁLAGO</span>
       </Badge>
 
-      <div className="grid grid-cols-2 gap-8 pb-16">
+      <div className="grid grid-cols-2 justify-items-center gap-8 pb-16">
         {categories.map((categorie) => (
           <CatalogItem key={categorie.id} category={categorie} />
         ))}

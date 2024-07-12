@@ -12,6 +12,7 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { useState } from 'react'
 
 import logo from '../../public/logo.svg'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
@@ -27,6 +28,7 @@ import {
 
 const Header = () => {
   const { status, data } = useSession()
+  const [open, setOpen] = useState(false)
   const handleLoginClick = async () => {
     await signIn()
   }
@@ -35,9 +37,11 @@ const Header = () => {
     await signOut()
   }
 
+  const handleClose = () => setOpen((state) => !state)
+
   return (
-    <Sheet>
-      <div className="flex justify-between p-5">
+    <Sheet onOpenChange={setOpen} open={open}>
+      <div className="flex items-center justify-between p-5">
         <SheetTrigger asChild>
           <Button
             variant="outline"
@@ -46,7 +50,9 @@ const Header = () => {
             <Menu size={16} />
           </Button>
         </SheetTrigger>
-        <Image src={logo} alt="fsw store" />
+        <Link href={'/'}>
+          <Image src={logo} alt="fsw store" />
+        </Link>
         <Button
           variant="outline"
           className="flex size-8 items-center justify-center p-0"
@@ -102,20 +108,35 @@ const Header = () => {
               Fazer Logout
             </Button>
           )}
-
-          <Button variant="outline" className="w-full justify-start gap-2">
-            <Home size={16} />
-            Início
-          </Button>
+          <Link href={'/'} legacyBehavior passHref>
+            <Button
+              onClick={handleClose}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              asChild
+            >
+              <a>
+                <Home size={16} />
+                Início
+              </a>
+            </Button>
+          </Link>
 
           <Button variant="outline" className="w-full justify-start gap-2">
             <Percent size={16} />
             Ofertas
           </Button>
-          <Link href={'/catalog'}>
-            <Button variant="outline" className="w-full justify-start gap-2">
-              <ListOrdered size={16} />
-              Catálogo
+          <Link href={'/catalog'} passHref legacyBehavior>
+            <Button
+              onClick={handleClose}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              asChild
+            >
+              <a>
+                <ListOrdered size={16} />
+                Catálogo
+              </a>
             </Button>
           </Link>
         </div>

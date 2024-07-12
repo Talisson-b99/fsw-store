@@ -23,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="antialiased">
       <body className={inter.className}>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <div className="flex h-full flex-col">
+          <Providers>
+            <Header />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </Providers>
+        </div>
       </body>
     </html>
   )

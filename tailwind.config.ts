@@ -19,6 +19,8 @@ const config = {
     },
     extend: {
       colors: {
+        'purple-bg': '#5033C3',
+        'purple-bg-light': 'rgba(80, 51, 195, 0.20)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
