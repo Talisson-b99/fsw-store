@@ -1,5 +1,7 @@
 import prisma from '@/lib/prisma'
 
+import ProductImages from './components/product-images'
+
 interface ProductDetailsPageProps {
   params: {
     slug: string
@@ -18,7 +20,7 @@ const ProductDetailsPage = async ({
   if (!product) return null
   return (
     <div>
-      <h1>Pagiona de detalhes do produto</h1>
+      <ProductImages imagesUrls={product.imageUrls} name={product.name} />
     </div>
   )
 }

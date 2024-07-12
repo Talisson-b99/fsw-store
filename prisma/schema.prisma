@@ -20,6 +20,8 @@ model Product {
   name        String
   slug        String
   description String
+  stock       Int      @default(0)
+  conditions  String   @default("novo")
   basePrice   Decimal  @db.Decimal(8, 2)
   imageUrls   String[]
 

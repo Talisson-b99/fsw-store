@@ -27,6 +27,7 @@ async function main() {
         ],
         basePrice: 250,
         categoryId: mousesCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -42,6 +43,7 @@ async function main() {
         ],
         basePrice: 299,
         categoryId: mousesCategory.id,
+        stock: 50,
         discountPercentage: 5, // 5% discount
       },
       {
@@ -57,6 +59,7 @@ async function main() {
         ],
         basePrice: 999,
         categoryId: mousesCategory.id,
+        stock: 50,
         discountPercentage: 15, // 15% discount
       },
       {
@@ -72,6 +75,7 @@ async function main() {
         ],
         basePrice: 588,
         categoryId: mousesCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -87,6 +91,7 @@ async function main() {
         ],
         basePrice: 330,
         categoryId: mousesCategory.id,
+        stock: 50,
         discountPercentage: 0,
       },
     ]
@@ -118,6 +123,7 @@ async function main() {
         ],
         basePrice: 349,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -133,6 +139,7 @@ async function main() {
         ],
         basePrice: 499,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -148,6 +155,7 @@ async function main() {
         ],
         basePrice: 1129,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -163,6 +171,7 @@ async function main() {
         ],
         basePrice: 509,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 15, // 10% discount
       },
       {
@@ -178,6 +187,7 @@ async function main() {
         ],
         basePrice: 200,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -193,6 +203,7 @@ async function main() {
         ],
         basePrice: 250,
         categoryId: keyboardsCategory.id,
+        stock: 50,
         discountPercentage: 25, // 10% discount
       },
     ]
@@ -224,6 +235,7 @@ async function main() {
         ],
         basePrice: 950,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -239,6 +251,7 @@ async function main() {
         ],
         basePrice: 489,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -254,6 +267,7 @@ async function main() {
         ],
         basePrice: 299,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 15, // 10% discount
       },
       {
@@ -269,6 +283,7 @@ async function main() {
         ],
         basePrice: 1179,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -284,6 +299,7 @@ async function main() {
         ],
         basePrice: 899,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -299,6 +315,7 @@ async function main() {
         ],
         basePrice: 299,
         categoryId: headphonesCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
     ]
@@ -329,6 +346,7 @@ async function main() {
         ],
         basePrice: 850,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -344,6 +362,7 @@ async function main() {
         ],
         basePrice: 389,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -359,6 +378,7 @@ async function main() {
         ],
         basePrice: 159,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -373,6 +393,7 @@ async function main() {
         ],
         basePrice: 135,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 15, // 10% discount
       },
       {
@@ -388,6 +409,7 @@ async function main() {
         ],
         basePrice: 129,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -402,6 +424,7 @@ async function main() {
         ],
         basePrice: 109,
         categoryId: mousepadsCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
     ]
@@ -433,6 +456,7 @@ async function main() {
         ],
         basePrice: 14000,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 15, // 10% discount
       },
       {
@@ -448,6 +472,7 @@ async function main() {
         ],
         basePrice: 3800,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -463,6 +488,7 @@ async function main() {
         ],
         basePrice: 1600,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -478,6 +504,7 @@ async function main() {
         ],
         basePrice: 11000,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -493,6 +520,7 @@ async function main() {
         ],
         basePrice: 12850,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -508,6 +536,7 @@ async function main() {
         ],
         basePrice: 2299,
         categoryId: monitorsCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
     ]
@@ -538,6 +567,7 @@ async function main() {
         ],
         basePrice: 1200,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 5, // 10% discount
       },
       {
@@ -553,6 +583,7 @@ async function main() {
         ],
         basePrice: 1300,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 15, // 10% discount
       },
       {
@@ -567,6 +598,7 @@ async function main() {
         ],
         basePrice: 999,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 10, // 10% discount
       },
       {
@@ -582,6 +614,7 @@ async function main() {
         ],
         basePrice: 799,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -597,6 +630,7 @@ async function main() {
         ],
         basePrice: 699,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
       {
@@ -612,6 +646,7 @@ async function main() {
         ],
         basePrice: 699,
         categoryId: speakersCategory.id,
+        stock: 50,
         discountPercentage: 0, // 10% discount
       },
     ]
