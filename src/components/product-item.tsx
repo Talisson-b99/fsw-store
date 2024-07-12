@@ -15,7 +15,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
   const productWithDiscount = computeProductTotalPrice(product)
   return (
     <div className="flex max-w-[156px] flex-col gap-4">
-      <div className="bg-accent relative flex h-[170px] w-[156px] items-center justify-center rounded-lg">
+      <div className="relative flex h-[170px] w-[156px] items-center justify-center rounded-lg bg-accent">
         <Image
           src={productWithDiscount.imageUrls[0]}
           width={0}
@@ -39,7 +39,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
             {formatCurrency(productWithDiscount.totalPrice)}
           </p>
           {productWithDiscount.discountPercentage > 0 && (
-            <span className="text-muted-foreground truncate text-xs font-normal">
+            <span className="truncate text-xs font-normal text-muted-foreground">
               {formatCurrency(Number(productWithDiscount.basePrice))}
             </span>
           )}

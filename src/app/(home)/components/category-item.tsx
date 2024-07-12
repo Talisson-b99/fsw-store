@@ -7,6 +7,7 @@ import {
   Speaker,
   Square,
 } from 'lucide-react'
+import Link from 'next/link'
 
 import { Badge } from '@/components/ui/badge'
 
@@ -24,13 +25,15 @@ const CategoryItem = ({ category: { name, slug } }: CategoryItemProps) => {
     mouses: <MouseIcon size={18} />,
   }
   return (
-    <Badge
-      variant={'outline'}
-      className="flex items-center justify-center gap-2 rounded-lg py-3"
-    >
-      {categoryIcon[slug as keyof typeof categoryIcon]}
-      <span className="text-xs font-semibold">{name}</span>
-    </Badge>
+    <Link href={`/product/${slug}`}>
+      <Badge
+        variant={'outline'}
+        className="flex items-center justify-center gap-2 rounded-lg py-3"
+      >
+        {categoryIcon[slug as keyof typeof categoryIcon]}
+        <span className="text-xs font-semibold">{name}</span>
+      </Badge>
+    </Link>
   )
 }
 
