@@ -25,7 +25,7 @@ const CategoryItem = ({ category: { name, slug } }: CategoryItemProps) => {
     mouses: <MouseIcon size={18} />,
   }
   return (
-    <Link href={`/product/${slug}`}>
+    <Link href={`/products/${slug}`}>
       <Badge
         variant={'outline'}
         className="flex items-center justify-center gap-2 rounded-lg py-3"
