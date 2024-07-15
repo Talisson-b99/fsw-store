@@ -12,8 +12,17 @@ interface CartItemProps {
 }
 
 const CartItem = ({ product }: CartItemProps) => {
-  const { removeProductCart } = useCartStore()
+  const { removeProductCart, addProductCart } = useCartStore()
   const productWithDiscount = computeProductTotalPrice(product)
+  // const [quantity] = useState(1)
+
+  function handleIncreaseProductCart() {
+    addProductCart({ ...product, quantity: 1 })
+  }
+
+  function handleDecreaseProductCart() {
+    addProductCart({ ...product, quantity: -1 })
+  }
 
   function handleRemoveProductCart() {
     removeProductCart(product)
@@ -41,11 +50,21 @@ const CartItem = ({ product }: CartItemProps) => {
           </span>
         </div>
         <div className="flex gap-1">
-          <Button size={'icon'} variant={'outline'} className="h-6 w-6">
+          <Button
+            size={'icon'}
+            variant={'outline'}
+            className="h-6 w-6"
+            onClick={handleDecreaseProductCart}
+          >
             <ChevronLeft className="size-4" />
           </Button>
           <span className="w-5 text-center">{product.quantity}</span>
-          <Button size={'icon'} variant={'outline'} className="h-6 w-6">
+          <Button
+            size={'icon'}
+            variant={'outline'}
+            className="h-6 w-6"
+            onClick={handleIncreaseProductCart}
+          >
             <ChevronRight className="size-4" />
           </Button>
         </div>

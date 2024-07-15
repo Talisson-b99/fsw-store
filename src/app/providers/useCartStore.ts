@@ -25,11 +25,13 @@ export const useCartStore = create<ICartContext>()((set) => ({
       const productIndex = state.products.findIndex((p) => p.id === product.id)
 
       if (productIndex !== -1) {
-        const updateProduct = state.products.map((p, i) => {
-          return i === productIndex
-            ? { ...p, quantity: p.quantity + product.quantity }
-            : p
-        })
+        const updateProduct = state.products
+          .map((p, i) => {
+            return i === productIndex
+              ? { ...p, quantity: p.quantity + product.quantity }
+              : p
+          })
+          .filter((p) => p.quantity > 0)
         return { products: updateProduct }
       } else {
         return { products: [...state.products, product] }
