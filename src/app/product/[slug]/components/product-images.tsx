@@ -33,7 +33,6 @@ const ProductImages = ({ imagesUrls, name }: ProductImagesProps) => {
           <button
             key={image}
             className={`relative flex h-[100px] items-center justify-center rounded-lg bg-accent`}
-            // ${image === currentImage && 'border-2 border-solid border-primary'}
             onClick={() => handleImageClick(image)}
           >
             <Image

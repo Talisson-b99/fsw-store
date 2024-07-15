@@ -29,7 +29,7 @@ const ProductPage = async ({ params: { slug } }: ProductPageProps) => {
         className="my-[30px] flex w-fit gap-2 px-3 py-2 font-semibold"
       >
         <Mouse size={14} />
-        <span className="text-base">Mouses</span>
+        <span className="text-base">{category.name}</span>
       </Badge>
 
       <div className="grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-20">

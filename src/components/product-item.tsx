@@ -14,8 +14,9 @@ interface ProductItemProps {
 
 const ProductItem = ({ product }: ProductItemProps) => {
   const productWithDiscount = computeProductTotalPrice(product)
+
   return (
-    <Link href={`product/${productWithDiscount.slug}`}>
+    <Link href={`/product/${productWithDiscount.slug}`}>
       <div className="flex max-w-[156px] flex-col gap-4">
         <div className="relative flex h-[170px] w-[156px] items-center justify-center rounded-lg bg-accent">
           <Image

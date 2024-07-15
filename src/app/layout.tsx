@@ -7,6 +7,7 @@ import Footer from '@/components/footer'
 import Header from '@/components/header'
 
 import { Providers } from './providers/auth'
+import CartProvider from './providers/cart'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,9 +26,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex h-full flex-col">
           <Providers>
-            <Header />
-            <div className="flex-1">{children}</div>
-            <Footer />
+            <CartProvider>
+              <Header />
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </CartProvider>
           </Providers>
         </div>
       </body>
