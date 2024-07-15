@@ -63,7 +63,7 @@ const Header = () => {
               <ShoppingCart size={16} />
             </Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="w-[85%]">
             <Cart />
           </SheetContent>
         </Sheet>

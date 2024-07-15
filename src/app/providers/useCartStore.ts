@@ -1,7 +1,7 @@
 import { Product } from '@prisma/client'
 import { create } from 'zustand'
 
-interface CartProduct extends Product {
+export interface CartProduct extends Product {
   quantity: number
 }
 
@@ -11,6 +11,7 @@ interface ICartContext {
   cartBasePrice: number
   cartTotalDiscount: number
   addProductCart: (product: CartProduct) => void
+  removeProductCart: (product: CartProduct) => void
 }
 
 export const useCartStore = create<ICartContext>()((set) => ({
@@ -19,6 +20,27 @@ export const useCartStore = create<ICartContext>()((set) => ({
   cartTotalDiscount: 0,
   cartTotalPrice: 0,
 
-  addProductCart: (product) =>
-    set((state) => ({ products: [...state.products, product] })),
+  addProductCart: (product) => {
+    set((state) => {
+      const productIndex = state.products.findIndex((p) => p.id === product.id)
+
+      if (productIndex !== -1) {
+        const updateProduct = state.products.map((p, i) => {
+          return i === productIndex
+            ? { ...p, quantity: p.quantity + product.quantity }
+            : p
+        })
+        return { products: updateProduct }
+      } else {
+        return { products: [...state.products, product] }
+      }
+    })
+  },
+  removeProductCart: (product) => {
+    set((state) => ({
+      products: state.products.filter(
+        (productCurrent) => productCurrent.id !== product.id,
+      ),
+    }))
+  },
 }))
