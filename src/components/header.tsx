@@ -15,6 +15,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 import logo from '../../public/logo.svg'
+import Cart from './cart'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
@@ -53,12 +54,19 @@ const Header = () => {
         <Link href={'/'}>
           <Image src={logo} alt="fsw store" />
         </Link>
-        <Button
-          variant="outline"
-          className="flex size-8 items-center justify-center p-0"
-        >
-          <ShoppingCart size={16} />
-        </Button>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="outline"
+              className="flex size-8 items-center justify-center p-0"
+            >
+              <ShoppingCart size={16} />
+            </Button>
+          </SheetTrigger>
+          <SheetContent>
+            <Cart />
+          </SheetContent>
+        </Sheet>
       </div>
       <Separator />
       <SheetContent side="left">

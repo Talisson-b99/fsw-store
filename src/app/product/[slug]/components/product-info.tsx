@@ -5,6 +5,7 @@ import { ArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { useCartStore } from '@/app/providers/useCartStore'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { formatCurrency } from '@/helps/format-currency'
@@ -17,6 +18,7 @@ interface ProductInfoProps {
 const ProductInfo = ({ product }: ProductInfoProps) => {
   const productWithDiscount = computeProductTotalPrice(product)
   const [quantity, setQuantity] = useState(1)
+  const { addProductCart } = useCartStore()
 
   function handleIncreaseQuantity() {
     setQuantity((prev) => prev + 1)
@@ -25,6 +27,10 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
   function handleDecreaseQuantity() {
     if (quantity === 1) return
     setQuantity((prev) => prev - 1)
+  }
+
+  function handleAddProductToCart() {
+    addProductCart({ ...product, quantity })
   }
 
   return (
@@ -91,7 +97,10 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
       </div>
 
       <div className="my-8 space-y-5">
-        <Button className="w-full text-sm font-bold">
+        <Button
+          className="w-full text-sm font-bold"
+          onClick={handleAddProductToCart}
+        >
           Adicionar ao carrinho
         </Button>
         <div className="flex h-16 items-center gap-3 rounded-md bg-accent px-6 py-2">
