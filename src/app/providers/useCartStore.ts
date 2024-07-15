@@ -32,17 +32,83 @@ export const useCartStore = create<ICartContext>()((set) => ({
               : p
           })
           .filter((p) => p.quantity > 0)
-        return { products: updateProduct }
+        const basePrice = updateProduct.reduce(
+          (acc, p) => acc + Number(p.basePrice) * p.quantity,
+          0,
+        )
+        const discount = updateProduct.reduce(
+          (acc, p) =>
+            acc +
+            (p.discountPercentage / 100) * (Number(p.basePrice) * p.quantity),
+          0,
+        )
+
+        const total = updateProduct.reduce(
+          (acc, p) => acc + Number(p.basePrice) * p.quantity,
+          0,
+        )
+        return {
+          products: updateProduct,
+          cartBasePrice: basePrice,
+          cartTotalDiscount: discount,
+          cartTotalPrice: total - discount,
+        }
       } else {
-        return { products: [...state.products, product] }
+        const updateProduct = [...state.products, product]
+
+        const basePriceContext = updateProduct.reduce(
+          (acc, p) => acc + Number(p.basePrice) * p.quantity,
+          0,
+        )
+
+        const discount = updateProduct.reduce(
+          (acc, p) =>
+            acc +
+            (p.discountPercentage / 100) * (Number(p.basePrice) * p.quantity),
+          0,
+        )
+
+        const total = updateProduct.reduce(
+          (acc, p) => acc + Number(p.basePrice) * p.quantity,
+          0,
+        )
+        return {
+          products: [...state.products, product],
+          cartBasePrice: basePriceContext,
+          cartTotalDiscount: discount,
+          cartTotalPrice: total - discount,
+        }
       }
     })
   },
   removeProductCart: (product) => {
-    set((state) => ({
-      products: state.products.filter(
+    set((state) => {
+      const updateProducts = state.products.filter(
         (productCurrent) => productCurrent.id !== product.id,
-      ),
-    }))
+      )
+
+      const basePrice = updateProducts.reduce(
+        (acc, p) => acc + Number(p.basePrice) * p.quantity,
+        0,
+      )
+
+      const discount = updateProducts.reduce(
+        (acc, p) =>
+          acc + (p.discountPercentage / 100) * Number(p.basePrice) * p.quantity,
+        0,
+      )
+
+      const total = updateProducts.reduce(
+        (acc, p) => acc + Number(p.basePrice) * p.quantity,
+        0,
+      )
+
+      return {
+        products: updateProducts,
+        cartBasePrice: basePrice,
+        cartTotalDiscount: discount,
+        cartTotalPrice: total - discount,
+      }
+    })
   },
 }))
