@@ -21,6 +21,7 @@ import { Button } from './ui/button'
 import { Separator } from './ui/separator'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -129,11 +130,15 @@ const Header = () => {
               </a>
             </Button>
           </Link>
+          <SheetClose asChild>
+            <Link href={'/deals'} passHref legacyBehavior>
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <Percent size={16} />
+                Ofertas
+              </Button>
+            </Link>
+          </SheetClose>
 
-          <Button variant="outline" className="w-full justify-start gap-2">
-            <Percent size={16} />
-            Ofertas
-          </Button>
           <Link href={'/catalog'} passHref legacyBehavior>
             <Button
               onClick={handleClose}
