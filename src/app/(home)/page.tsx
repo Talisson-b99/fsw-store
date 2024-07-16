@@ -80,7 +80,7 @@ export default async function Home() {
         />
       </div>
 
-      <div className="mb-20 py-[30px]">
+      <div className="mb-10 py-[30px]">
         <ProductList title="Mouses" products={mouses[0].products} />
       </div>
     </>

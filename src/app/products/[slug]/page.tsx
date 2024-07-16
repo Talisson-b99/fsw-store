@@ -32,7 +32,7 @@ const ProductPage = async ({ params: { slug } }: ProductPageProps) => {
         <span className="text-base">{category.name}</span>
       </Badge>
 
-      <div className="grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-20">
+      <div className="grid grid-cols-2 justify-items-center gap-x-4 gap-y-8 pb-10">
         {category.products.map((product) => (
           <ProductItem product={product} />
         ))}

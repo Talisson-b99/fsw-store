@@ -36,7 +36,7 @@ const CartItem = ({ product }: CartItemProps) => {
           height={0}
           sizes="auto"
           alt={product.name}
-          className="h-[80%] w-[90%] object-cover p-1"
+          className="object-container h-[80%] w-[90%] p-1"
         />
       </div>
       <div className="col-span-2 flex flex-col space-y-1">

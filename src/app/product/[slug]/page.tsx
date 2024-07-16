@@ -24,7 +24,13 @@ const ProductDetailsPage = async ({
       id: product?.categoryId,
     },
     include: {
-      products: true,
+      products: {
+        where: {
+          slug: {
+            not: slug,
+          },
+        },
+      },
     },
   })
 
@@ -38,7 +44,7 @@ const ProductDetailsPage = async ({
         <ProductInfo product={product} />
       </div>
 
-      <div className="mb-20 mt-8">
+      <div className="mb-10 mt-8">
         <ProductList
           title="Produtos recomendados"
           products={recommendedProducts.products}

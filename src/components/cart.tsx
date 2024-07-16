@@ -1,20 +1,34 @@
 'use client'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { loadStripe } from '@stripe/stripe-js'
 import { ShoppingCart } from 'lucide-react'
 
+import { createCheckout } from '@/actions/checkout'
 import { useCartStore } from '@/app/providers/useCartStore'
 import { formatCurrency } from '@/helps/format-currency'
 
 import CartItem from './cart-item'
 import { Badge } from './ui/badge'
+import { Button } from './ui/button'
 import { Table, TableBody, TableCell, TableRow } from './ui/table'
 
 const Cart = () => {
   const { products, cartBasePrice, cartTotalDiscount, cartTotalPrice } =
     useCartStore()
   const [parent] = useAutoAnimate()
+
+  async function handleFinishPurchaseClick() {
+    const checkout = await createCheckout(products)
+
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
+
+    stripe?.redirectToCheckout({
+      sessionId: checkout.id,
+    })
+  }
+
   return (
-    <div>
+    <div className="flex h-screen flex-col">
       <Badge
         variant={'outline'}
         className="my-[30px] flex w-fit gap-2 border-primary px-3 py-2 font-semibold"
@@ -24,7 +38,7 @@ const Cart = () => {
       </Badge>
 
       <div
-        className="flex h-[60vh] flex-col gap-5 overflow-y-scroll [&::-webkit-scrollbar]:hidden"
+        className="flex flex-1 flex-col gap-5 overflow-y-scroll [&::-webkit-scrollbar]:hidden"
         ref={parent}
       >
         {products.map((product) => (
@@ -32,7 +46,7 @@ const Cart = () => {
         ))}
       </div>
       {products.length > 0 && (
-        <div>
+        <div className="flex- mb-12 flex flex-col">
           <Table>
             <TableBody>
               <TableRow className="bg-none">
@@ -61,6 +75,12 @@ const Cart = () => {
               </TableRow>
             </TableBody>
           </Table>
+          <Button
+            className="text-sm font-bold"
+            onClick={handleFinishPurchaseClick}
+          >
+            Finalizar Compra
+          </Button>
         </div>
       )}
     </div>
