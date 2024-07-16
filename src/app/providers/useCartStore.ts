@@ -3,7 +3,6 @@ import { create } from 'zustand'
 
 export interface CartProduct extends Product {
   quantity: number
-  total: number
 }
 
 interface ICartContext {
