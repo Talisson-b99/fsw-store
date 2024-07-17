@@ -26,7 +26,7 @@ const ProductPage = async ({ params: { slug } }: ProductPageProps) => {
     <div className="px-5">
       <Badge
         variant={'outline'}
-        className="my-[30px] flex w-fit gap-2 px-3 py-2 font-semibold"
+        className="my-[30px] flex w-fit gap-2 border-primary px-3 py-2 font-semibold"
       >
         <Mouse size={14} />
         <span className="text-base">{category.name}</span>

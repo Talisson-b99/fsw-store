@@ -6,6 +6,7 @@ import {
   LogIn,
   LogOut,
   Menu,
+  PackageSearch,
   Percent,
   ShoppingCart,
 } from 'lucide-react'
@@ -127,6 +128,20 @@ const Header = () => {
               <a>
                 <Home size={16} />
                 Início
+              </a>
+            </Button>
+          </Link>
+
+          <Link href={'/orders'} legacyBehavior passHref>
+            <Button
+              onClick={handleClose}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              asChild
+            >
+              <a>
+                <PackageSearch size={16} />
+                Meus Pedidos
               </a>
             </Button>
           </Link>
