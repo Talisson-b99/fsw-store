@@ -5,7 +5,10 @@ import Stripe from 'stripe'
 import { CartProduct } from '@/app/providers/useCartStore'
 import { computeProductTotalPrice } from '@/helps/products'
 
-export const createCheckout = async (products: CartProduct[]) => {
+export const createCheckout = async (
+  products: CartProduct[],
+  orderId: string,
+) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     apiVersion: '2024-06-20',
   })
@@ -15,7 +18,9 @@ export const createCheckout = async (products: CartProduct[]) => {
     mode: 'payment',
     success_url: 'http://localhost:3000',
     cancel_url: 'http://localhost:3000',
-
+    metadata: {
+      orderId,
+    },
     line_items: products.map((product: CartProduct) => {
       return {
         price_data: {
