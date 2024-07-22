@@ -26,6 +26,7 @@ export const POST = async (req: Request) => {
         expand: ['line_items'],
       },
     )
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const lineItems = sessionWithLineItems.line_items
 
     await prisma.order.update({
