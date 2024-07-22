@@ -7,8 +7,11 @@ import prisma from '@/lib/prisma'
 
 import OrderItem from './components/order-item'
 
+export const dynamic = 'force-dynamic'
+
 const OrdersPage = async () => {
-  const { user } = await getServerSession(authOptions)
+  const user = await getServerSession(authOptions)
+  console.log(user)
 
   if (!user) {
     return <p>Access Denied</p>
@@ -26,7 +29,6 @@ const OrdersPage = async () => {
       },
     },
   })
-  console.log(user.id)
 
   return (
     <div className="p-5">
