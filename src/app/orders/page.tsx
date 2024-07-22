@@ -8,7 +8,7 @@ import prisma from '@/lib/prisma'
 import OrderItem from './components/order-item'
 
 const OrdersPage = async () => {
-  const user = getServerSession(authOptions)
+  const { user } = await getServerSession(authOptions)
 
   if (!user) {
     return <p>Access Denied</p>
@@ -19,9 +19,15 @@ const OrdersPage = async () => {
       userId: (user as any).id,
     },
     include: {
-      orderProducts: true,
+      orderProducts: {
+        include: {
+          product: true,
+        },
+      },
     },
   })
+  console.log(user.id)
+
   return (
     <div className="p-5">
       <Badge
